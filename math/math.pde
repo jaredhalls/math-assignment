@@ -32,16 +32,15 @@ void Buttons() {
   if (mousePressed) {
     if (mouseX>x && mouseX <x+w && mouseY>y && mouseY <y+h) {
       fill(0);
-      text("Addition", 350,350);
+      text("Addition", 200,200);
     }
     if (mouseX>x+75 && mouseX <x+75+w && mouseY>y && mouseY <y+h) {
       fill(0);
-      
-      
+      text("Subtraction",200,200);      
     }
     if (mouseX>x+150 && mouseX <x+150+w && mouseY>y && mouseY <y+h) {
       fill(0);
-      
+      text("Game",200,200);
     }
   }
 }
