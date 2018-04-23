@@ -1,10 +1,7 @@
-float x = -1;
-float y = 575;
-float w = 75;
-float h = 25;
 String ans = "";
-int add1 = int(random(1,10));
-int add2 = int(random(1,10));
+int mathType;
+int add1 = int(random(1, 10));
+int add2 = int(random(1, 10));
 int addvar;
 
 void setup() {
@@ -16,31 +13,49 @@ void setup() {
 
 void draw() {
   background(0);
-  Buttons();
+  buttons();
 }
 
-void Buttons() {
+void buttons() {
   fill(255);
-  rect(x, y, w, h);
-  rect(x+75, y, w, h);
-  rect(x+150, y, w, h);
-      fill(0);
-  text("Addition",x+2,y+25);
-  text("Subtraction",x+77,y+25);
-  text("Game",x+152,y+25);
-
+  rect(-1, 575, 75, 25);
+  rect(-1+75, 575, 75, 25);
+  rect(-1+150, 575, 75, 25);
+  fill(0);
+  text("Addition", -1+2, 575+25);
+  text("Subtraction", -1+77, 575+25);
+  text("Game", -1+152, 575+25);
   if (mousePressed) {
-    if (mouseX>x && mouseX <x+w && mouseY>y && mouseY <y+h) {
+    if (mouseX > -1 && mouseX < -1+75 && mouseY > 575 && mouseY < 575+25) {
       fill(0);
-      text("Addition", 200,200);
-    }
-    if (mouseX>x+75 && mouseX <x+75+w && mouseY>y && mouseY <y+h) {
+      mathType = 1;
+    } else if (mouseX > -1+75 && mouseX < -1+75+75 && mouseY > 575 && mouseY < 575+25) {
       fill(0);
-      text("Subtraction",200,200);      
-    }
-    if (mouseX>x+150 && mouseX <x+150+w && mouseY>y && mouseY <y+h) {
+      mathType = 2;
+    } else if (mouseX > -1+150 && mouseX < -1+150+75 && mouseY > 575 && mouseY < 575+75) {
       fill(0);
-      text("Game",200,200);
+      mathType = 3;
     }
   }
+  if (mathType == 1) {
+    addMath();
+  } else if (mathType == 2) {
+    subMath();
+  } else if (mathType == 3) {
+    notGame();
+  } else if (mathType == 4) {
+    buttons();
+  }
+}
+
+void addMath() {
+  
+}
+
+void subMath() {
+  
+}
+
+void notGame() {
+  
 }
