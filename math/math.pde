@@ -1,8 +1,9 @@
-String ans = "";
 int mathType;
-int add1 = int(random(1, 10));
-int add2 = int(random(1, 10));
+int add1;
+int add2;
+int addans;
 int addvar;
+int x;
 
 void setup() {
   size(600, 600);
@@ -49,13 +50,19 @@ void buttons() {
 }
 
 void addMath() {
-  
+  fill(255);
+   add1 = int(random(1, 10));
+   add2 = int(random(1, 10));
+   addans = add1 + add2;
+  text(add1 + "+" + addvar + "=" + addans, 300,300);
 }
 
 void subMath() {
+  fill(255);
   
 }
 
 void notGame() {
+  fill(255);
   
 }
