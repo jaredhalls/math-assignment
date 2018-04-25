@@ -1,9 +1,22 @@
 int mathType;
-int add1;
-int add2;
+//addition variables
+int add1 = int(random(1, 10));
+int add2 = int(random(1, 10));
+String userInput = "";
 int addans;
 int addvar;
 int x;
+int addscore;
+int addinput;
+//subtraction variables
+int sub1 = int(random(1,10));
+int sub2 = int(random(1,10));
+//String
+int subans;
+int subvar;
+int y;
+int subscore;
+int subinput;
 
 void setup() {
   size(600, 600);
@@ -51,18 +64,37 @@ void buttons() {
 
 void addMath() {
   fill(255);
-   add1 = int(random(1, 10));
-   add2 = int(random(1, 10));
-   addans = add1 + add2;
-  text(add1 + "+" + addvar + "=" + addans, 300,300);
+  addinput = int(userInput);
+  addans = add1 + add2;
+  x = add2;
+  text("Hey, what is x?", 300, 200);
+  text(addscore, 100, 200);
+  text(userInput, 300, 400);
+  text(add1 + "+" + "x" + "=" + addans, 300, 300);
 }
 
 void subMath() {
   fill(255);
-  
+  subans = sub1 + sub2;
+  y = sub2;
+  text("Hey, what is y?", 300, 200);
+  text(subscore, 100, 200);
+  text(userInput, 300, 400);
+  text(sub1 + "+" + "y" + "=" + subans, 300, 300);
 }
 
 void notGame() {
   fill(255);
-  
+}
+
+void keyPressed() {
+  if (key == ENTER) {
+    if (addinput == x) {
+      addscore += 10;
+    }
+    add1 = int(random(1, 10));
+    add2 = int(random(1, 10));
+    userInput = "";
+  }
+  userInput += key;
 }
