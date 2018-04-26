@@ -1,22 +1,19 @@
 int mathType;
 //addition variables
-int add1 = int(random(1, 10));
-int add2 = int(random(1, 10));
-String userInput = "";
+int add1 = 5;
+int add2 = 5;
+String userInput1 = "";
 int addans;
-int addvar;
-int x;
 int addscore;
 int addinput;
 //subtraction variables
-int sub1 = int(random(1,10));
-int sub2 = int(random(1,10));
-//String
+int sub1 = int(random(5, 10));
+int sub2 = int(random(1, 5));
+String userInput2 = "";
 int subans;
-int subvar;
-int y;
 int subscore;
 int subinput;
+int decider;
 
 void setup() {
   size(600, 600);
@@ -43,12 +40,15 @@ void buttons() {
     if (mouseX > -1 && mouseX < -1+75 && mouseY > 575 && mouseY < 575+25) {
       fill(0);
       mathType = 1;
+      decider = 1;
     } else if (mouseX > -1+75 && mouseX < -1+75+75 && mouseY > 575 && mouseY < 575+25) {
       fill(0);
       mathType = 2;
+      decider = 2;
     } else if (mouseX > -1+150 && mouseX < -1+150+75 && mouseY > 575 && mouseY < 575+75) {
       fill(0);
       mathType = 3;
+      decider = 3;
     }
   }
   if (mathType == 1) {
@@ -64,23 +64,22 @@ void buttons() {
 
 void addMath() {
   fill(255);
-  addinput = int(userInput);
+  addinput = int(userInput1); //<>//
   addans = add1 + add2;
-  x = add2;
   text("Hey, what is x?", 300, 200);
-  text(addscore, 100, 200);
-  text(userInput, 300, 400);
+  text(addscore + "ssss" , 100, 200);
+  text(userInput1, 300, 400);
   text(add1 + "+" + "x" + "=" + addans, 300, 300);
 }
 
 void subMath() {
   fill(255);
-  subans = sub1 + sub2;
-  y = sub2;
+  subinput = int(userInput2);
+  subans = sub1 - sub2;
   text("Hey, what is y?", 300, 200);
   text(subscore, 100, 200);
-  text(userInput, 300, 400);
-  text(sub1 + "+" + "y" + "=" + subans, 300, 300);
+  text(userInput2, 300, 400);
+  text(sub1 + "-" + "y" + "=" + subans, 300, 300);
 }
 
 void notGame() {
@@ -88,13 +87,32 @@ void notGame() {
 }
 
 void keyPressed() {
-  if (key == ENTER) {
-    if (addinput == x) {
-      addscore += 10;
+          println(addscore); //<>//
+
+  if (decider == 1) {
+    if (key == ENTER) {
+      println(addinput+"isaddinput");
+      println(add2 +"isadd2");
+      if (addinput == add2) {
+        addscore += 10;
+        println(addscore); //<>//
+      }
+      add1 = 5; //<>//
+      add2 = 5;
+      userInput1 = "";
     }
-    add1 = int(random(1, 10));
-    add2 = int(random(1, 10));
-    userInput = "";
+    userInput1 += key;
+  } else if (decider == 2) {
+    if (key == ENTER) {
+      if (subinput == sub2) {
+        sub1 = 0;
+        sub2 = 0;
+        subscore += 10;
+      }
+      sub1 = int(random(5, 10));
+      sub2 = int(random(1, 5));
+      userInput2 = "";
+    }
+    userInput2 += key;
   }
-  userInput += key;
 }
